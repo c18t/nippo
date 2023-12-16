@@ -1,0 +1,19 @@
+{{ define "layout" -}}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .PageTitle }}{{ .PageTitle }} / {{ else }}日報 - nippo.c18t.net{{ end }}</title>
+</head>
+<body>
+{{ block "header" . }}
+{{ end }}
+{{ block "content" . }}
+  <p>not found.</p>
+{{ end }}
+{{ block "footer" . }}
+{{ end }}
+</body>
+</html>
+{{- end }}
