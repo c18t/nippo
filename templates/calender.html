@@ -1,4 +1,5 @@
 {{ define "calender" -}}
+<h1>{{ .Date }}</h1>
 <div class="calender-wrap">
   <table class="calender">
     <thead>
@@ -13,21 +14,23 @@
       </tr>
     </thead>
     <tbody>
-    {{- range $i, $row := . }}
+    {{- range $row := .Calender.Weeks }}
       <tr>
-      {{- range $el := $row }}
+      {{- range $i, $el := $row }}
         {{- if $el.HasContent }}
         <td
-          {{- if $i eq 0 -}} class="sun"{{- end -}}
-          {{- if $i eq 6 -}} class="sat"{{- end -}}
+          {{- if eq $i 0 }} class="sun"
+          {{- else if eq $i 6 }} class="sat"
+          {{- else }}{{- end -}}
         >
-          <a href="/{{ $el.Date }}">{{ slice $el.Date }}</a>
+          <a href="/{{ $el.Date }}">{{ $el }}</a>
         </td>
         {{- else }}
         <td
-          {{- if $i eq 0 -}} class="sun off"{{- end -}}
-          {{- if $i eq 6 -}} class="sat off"{{- end -}}
-        >{{ slice $el.Date }}</td>
+          {{- if eq $i 0 }} class="off sun"
+          {{- else if eq $i 6 }} class="off sat"
+          {{- else }} class="off"{{- end -}}
+        >{{ if $el.Date }}{{ $el }}{{ end }}</td>
         {{- end }}
       {{- end }}
       </tr>
