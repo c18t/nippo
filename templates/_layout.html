@@ -4,15 +4,15 @@
 <head {{- if .Og }} prefix="og: http://ogp.me/ns#"{{ end -}}>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="alternate" type="application/rss+xml" href="/feed.xml"/>
-  <link rel="canonical" href="{{ .Url }}" />
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+  <link rel="canonical" href="{{ .Url }}">
   {{- if .Og }}
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@c18t" />
-  {{ if .Og.Url }}<meta property="og:url" content="{{ .Og.Url }}" />{{ end }}
-  {{ if .Og.Title }}<meta property="og:title" content="{{ .Og.Title }}" />{{ end }}
-  {{ if .Og.Description }}<meta property="og:description" content="{{ .Og.Description }}" />{{ end }}
-  {{ if .Og.ImageUrl }}<meta property="og:image" content="{{ .Og.ImageUrl }}" />{{ end }}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@c18t">
+  {{ if .Og.Url }}<meta property="og:url" content="{{ .Og.Url }}">{{ end }}
+  {{ if .Og.Title }}<meta property="og:title" content="{{ .Og.Title }}">{{ end }}
+  {{ if .Og.Description }}<meta property="og:description" content="{{ .Og.Description }}">{{ end }}
+  {{ if .Og.ImageUrl }}<meta property="og:image" content="{{ .Og.ImageUrl }}">{{ end }}
   {{- end }}
   <title>{{ if .PageTitle }}{{ .PageTitle }} / {{ else }}{{ end }}日報 - nippo.c18t.net</title>
 </head>
