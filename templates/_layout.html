@@ -4,9 +4,12 @@
 <head {{- if .Og }} prefix="og: http://ogp.me/ns#"{{ end -}}>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .PageTitle }}{{ .PageTitle }} / {{ else }}{{ end }}日報 - nippo.c18t.net</title>
+  <meta name="description" content="{{ .Description }}">
+  <link rel="canonical" href="{{ .Url }}">
   <link rel="alternate" type="application/rss+xml" href="/feed.xml">
   <link rel="search" type="application/opensearchdescription+xml" title="nippo.c18t.net" href="/opensearch.xml">
-  <link rel="canonical" href="{{ .Url }}">
+
   {{- if .Og }}
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@c18t">
@@ -15,7 +18,10 @@
   {{ if .Og.Description }}<meta property="og:description" content="{{ .Og.Description }}">{{ end }}
   {{ if .Og.ImageUrl }}<meta property="og:image" content="{{ .Og.ImageUrl }}">{{ end }}
   {{- end }}
-  <title>{{ if .PageTitle }}{{ .PageTitle }} / {{ else }}{{ end }}日報 - nippo.c18t.net</title>
+
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/main.js" as="script">
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
 </head>
 <body>
 {{ block "header" . }}
@@ -25,6 +31,8 @@
 {{ end }}
 {{ block "footer" . }}
 {{ end }}
+
+<script src="/main.js" defer></script>
 </body>
 </html>
 {{- end }}
