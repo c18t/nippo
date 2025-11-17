@@ -1,10 +1,12 @@
-import { defineConfig } from 'vite'
-import { browserslistToTargets } from 'lightningcss'
-import browserslist from 'browserslist'
+import { defineConfig } from 'vite';
+import { browserslistToTargets } from 'lightningcss';
+import browserslist from 'browserslist';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  publicDir: 'test',
+  plugins: [tsconfigPaths()],
+  root: 'src',
   css: {
     transformer: 'lightningcss',
     lightningcss: {
@@ -15,15 +17,12 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'output',
+    outDir: '../output',
     emptyOutDir: false,
     assetsDir: '.',
     cssMinify: 'lightningcss',
     rollupOptions: {
-      input: [
-        'src/css/style.css',
-        'src/js/main.ts',
-      ],
+      input: ['nippo.ts', 'nippo.css'],
       output: {
         entryFileNames: '[name].js',
         chunkFileNames: '[name].js',
@@ -31,4 +30,9 @@ export default defineConfig({
       },
     },
   },
-})
+  // devcontainer auto forwarding workaround (explicitly specify 127.0.0.1)
+  // cf. https://zenn.dev/onozaty/articles/docker-desktop-portforward-not-working
+  server: {
+    host: '127.0.0.1',
+  },
+});
