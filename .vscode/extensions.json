@@ -4,7 +4,6 @@
     "davidanson.vscode-markdownlint",
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
-    "golang.go",
     "hverlin.mise-vscode",
     "me-dutour-mathieu.vscode-github-actions",
     "mikestead.dotenv",

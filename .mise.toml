@@ -13,12 +13,11 @@ gh = "latest"
 jq = "latest"
 pipx = "latest"
 pnpm = "latest"
+actionlint = "latest"
 pre-commit = "latest"
 shellcheck = "latest"
 yamllint = "latest"
 "aqua:hadolint" = "latest"
-"go:github.com/k1LoW/octocov" = "latest"
-"go:github.com/rhysd/actionlint/cmd/actionlint" = "latest"
 
 [tasks.setup]
 description = "Set up (Runs all `setup:*` tasks)"
