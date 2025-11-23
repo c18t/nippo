@@ -1,0 +1,94 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/go
+{
+  "name": "Node workspace",
+
+  "build": {
+    "dockerfile": "./Dockerfile"
+  },
+  "capAdd": ["NET_ADMIN", "NET_RAW", "SYS_PTRACE"],
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  //"remoteUser": "root",
+
+  "containerEnv": {
+    "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "1",
+    "DISABLE_AUTOUPDATER": "1"
+  },
+
+  "workspaceFolder": "/workspaces/app",
+  "workspaceMount": "source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind,consistency=deligated",
+  "mounts": [
+    {
+      "type": "volume",
+      "source": "app-commandhistory-${devcontainerId}",
+      "target": "/commandhistory"
+    },
+    {
+      "type": "volume",
+      "source": "mise-cache",
+      "target": "/mise"
+    },
+    {
+      "type": "volume",
+      "source": "pnpm-cache",
+      "target": "/home/user/.local/share/pnpm"
+    },
+    {
+      "type": "volume",
+      "source": "app-node-modules-${devcontainerId}",
+      "target": "${containerWorkspaceFolder}/node_modules"
+    },
+    {
+      "type": "volume",
+      "source": "app-claude-code-config-${devcontainerId}",
+      "target": "/home/user/.claude"
+    }
+  ],
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [],
+  "portsAttributes": {},
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "sudo /usr/local/bin/init-firewall.sh && post-create.sh",
+  "postCreateCommand": "post-create.sh",
+  "waitFor": "postStartCommand",
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {
+  //   "ghcr.io/devcontainers/features/git:1": {
+  //     "version": "latest",
+  //     "ppa": "false"
+  //   },
+  //   "ghcr.io/devcontainers-extra/features/mise:1": {}
+  // },
+  // "overrideFeatureInstallOrder": [
+  //   "ghcr.io/devcontainers/features/git",
+  //   "ghcr.io/devcontainers-extra/features/mise"
+  // ],
+
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // "Anthropic.claude-code", // 落ちるので一旦外す
+        "DavidAnson.vscode-markdownlint",
+        "EditorConfig.EditorConfig",
+        "esbenp.prettier-vscode",
+        "golang.go",
+        "hverlin.mise-vscode",
+        "me-dutour-mathieu.vscode-github-actions",
+        "mosapride.zenkaku",
+        "oderwat.indent-rainbow",
+        "redhat.vscode-yaml",
+        "shardulm94.trailing-spaces"
+        // "tamasfe.even-better-toml", // 落ちるので一旦外す
+      ],
+      "settings": {
+        "claudeCode.allowDangerouslySkipPermissions": true,
+        "claudeCode.initialPermissionMode": "bypassPermissions",
+        "claudeCode.useTerminal": true
+      }
+    }
+  }
+}

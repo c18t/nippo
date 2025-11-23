@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "anthropic.claude-code",
+    "davidanson.vscode-markdownlint",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "hverlin.mise-vscode",
+    "me-dutour-mathieu.vscode-github-actions",
+    "mikestead.dotenv",
+    "mosapride.zenkaku",
+    "ms-vscode-remote.remote-containers",
+    "oderwat.indent-rainbow",
+    "redhat.vscode-yaml",
+    "shardulm94.trailing-spaces",
+    "tamasfe.even-better-toml",
+    "usernamehw.errorlens"
+  ]
+}

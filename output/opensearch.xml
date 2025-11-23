@@ -1,6 +1,6 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
-  <ShortName>nippo.c18t.net</ShortName>
-  <Description>Search page for nippo.c18t.net</Description>
+  <ShortName>nippo.c18t.me</ShortName>
+  <Description>Search page for nippo.c18t.me</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Url type="text/html" method="get" template="https://www.google.com/search?q=site:nippo.c18t.net%20{searchTerms}"/>
+  <Url type="text/html" method="get" template="https://www.google.com/search?q=site:nippo.c18t.me%20{searchTerms}"/>
 </OpenSearchDescription>

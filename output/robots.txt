@@ -1,1 +1,1 @@
-Sitemap: https://nippo.c18t.net/sitemap_index.xml
+Sitemap: https://nippo.c18t.me/sitemap_index.xml
