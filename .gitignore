@@ -247,4 +247,4 @@ $RECYCLE.BIN/
 ## working dir ##
 .claude/settings.local.json
 .playwright-mcp/
-output/index.html
+assets/index.html

@@ -17,7 +17,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: '../output',
+    outDir: '../assets',
     emptyOutDir: false,
     assetsDir: '.',
     cssMinify: 'lightningcss',
