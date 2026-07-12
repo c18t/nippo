@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light dark" />
+    <!-- FOUC 防止: スタイル適用前にテーマの明示選択を反映する -->
+    <script>
+      try {
+        var t = sessionStorage.getItem('nippo:theme');
+        if (t === 'light' || t === 'dark')
+          document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
     <title>日報 - nippo.c18t.me</title>
     <meta name="description" content="ɯ̹t͡ɕʲi&#39;s daily reports." />
     <link rel="canonical" href="https://nippo.c18t.me/" />
@@ -30,24 +38,74 @@
 
   <body>
     <header>
-      <p>日報 - nippo.c18t.me</p>
+      <div class="header-inner">
+        <a href="/" class="site-title"><span>日報</span> - nippo.c18t.me</a>
+        <div class="header-actions">
+          <span class="theme-label">Theme</span>
+          <theme-toggle></theme-toggle>
+        </div>
+      </div>
     </header>
-    <article>
-      <h1>12/31 sun</h1>
-      <p>
-        あのイーハトーヴォのすきとおった風、 夏でも底に冷たさをもつ青いそら、<br />うつくしい森で飾られたモリーオ市、
-        郊外のぎらぎらひかる草の波。
-      </p>
-      <p>
-        またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。
-        では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。
-      </p>
+    <main>
+      <article>
+        <h1>2025/12/31 <span class="weekday-sun">(日)</span></h1>
+        <p>
+          あのイーハトーヴォのすきとおった風、
+          夏でも底に冷たさをもつ青いそら、<br />うつくしい森で飾られたモリーオ市、
+          郊外のぎらぎらひかる草の波。
+        </p>
+        <p>
+          またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。
+          では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。
+        </p>
+        <p>
+          コード例は
+          <code>pnpm build</code>
+          のように、<strong>強調</strong>はこのように表示されます。
+        </p>
+        <ul>
+          <li>箇条書きの項目その一</li>
+          <li>箇条書きの項目その二</li>
+        </ul>
+      </article>
 
-      <!-- Lit コンポーネントのデモ -->
-      <my-element>
-        <h1>Vite + Lit</h1>
-      </my-element>
-    </article>
+      <h1>202512</h1>
+      <div class="calender-wrap">
+        <table class="calender">
+          <thead>
+            <tr>
+              <th class="sun">Sun</th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th class="sat">Sat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="off sun"></td>
+              <td><a href="/20251201">1</a></td>
+              <td><a href="/20251202">2</a></td>
+              <td class="off">3</td>
+              <td><a href="/20251204">4</a></td>
+              <td class="off">5</td>
+              <td class="sat"><a href="/20251206">6</a></td>
+            </tr>
+            <tr>
+              <td class="sun"><a href="/20251207">7</a></td>
+              <td class="off">8</td>
+              <td><a href="/20251209">9</a></td>
+              <td><a href="/20251210">10</a></td>
+              <td class="off">11</td>
+              <td><a href="/20251212">12</a></td>
+              <td class="off sat">13</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
     <footer>
       <ul>
         <li><a href="/">ホーム</a></li>
