@@ -5,6 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light dark" />
+    <!-- FOUC 防止: スタイル適用前にテーマの明示選択を反映する -->
+    <script>
+      try {
+        var t = sessionStorage.getItem('nippo:theme');
+        if (t === 'light' || t === 'dark')
+          document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
     <title>
       {{ if .PageTitle }}{{ .PageTitle }} / {{ else }}{{ end }}日報 -
       nippo.c18t.me
@@ -38,9 +46,13 @@
     <script type="module" src="/nippo.js"></script>
   </head>
   <body>
-    {{ block "header" . }} {{ end }} {{ block "content" . }}
-    <p>not found.</p>
-    {{ end }} {{ block "footer" . }} {{ end }}
+    {{ block "header" . }} {{ end }}
+    <main>
+      {{ block "content" . }}
+      <p>not found.</p>
+      {{ end }}
+    </main>
+    {{ block "footer" . }} {{ end }}
   </body>
 </html>
 {{- end }}
