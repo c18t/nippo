@@ -1,5 +1,11 @@
 {{ define "header" -}}
 <header>
-  <p>日報 - nippo.c18t.me</p>
+  <div class="header-inner">
+    <a href="/" class="site-title"><span>日報</span> - nippo.c18t.me</a>
+    <div class="header-actions">
+      <span class="theme-label">Theme</span>
+      <theme-toggle></theme-toggle>
+    </div>
+  </div>
 </header>
 {{- end }}
