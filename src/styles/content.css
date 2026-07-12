@@ -1,0 +1,131 @@
+/* ==================== Article ==================== */
+
+article {
+  /* 日付行 (h1) : mono + アクセントドット */
+  h1:first-child {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: var(--leading-normal);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 0;
+    margin-bottom: var(--space-md);
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      flex-shrink: 0;
+    }
+  }
+
+  /* 曜日色 (nippo-cli 側のデータ出力対応後に有効になる) */
+  .weekday-sat {
+    color: var(--color-sat);
+  }
+
+  .weekday-sun {
+    color: var(--color-sun);
+  }
+
+  /* 本文 */
+  p,
+  ul,
+  ol {
+    color: var(--color-text-secondary);
+    font-size: 0.92rem;
+    line-height: var(--leading-relaxed);
+    padding-left: 18px;
+    transition: color var(--transition-theme);
+  }
+
+  ul,
+  ol {
+    padding-left: 38px;
+  }
+
+  p {
+    white-space: pre-wrap;
+
+    & br {
+      display: none;
+    }
+  }
+}
+
+/* ==================== Calendar ==================== */
+
+.calender-wrap {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+  transition:
+    background-color var(--transition-theme),
+    border-color var(--transition-theme);
+}
+
+.calender {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 4px;
+  font-family: var(--font-mono);
+
+  th {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+    padding-bottom: 8px;
+
+    &.sun {
+      color: var(--color-sun);
+    }
+
+    &.sat {
+      color: var(--color-sat);
+    }
+  }
+
+  td {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    min-width: 40px;
+    height: 40px;
+
+    & a {
+      display: grid;
+      place-items: center;
+      min-height: 40px;
+      border-radius: 8px;
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+      font-weight: 600;
+      text-decoration: none;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+
+      &:hover {
+        background: var(--color-accent);
+        color: var(--color-bg-secondary);
+        text-decoration: none;
+      }
+    }
+
+    &.off {
+      color: var(--color-text-tertiary);
+      opacity: 0.6;
+    }
+  }
+}
